@@ -25,15 +25,7 @@
 
 #include "driver/spi.h"
 
-//Define some default SPI clock settings
 
-#ifndef CPU_CLK_FREQ //Should already be defined in eagle_soc.h
-#define CPU_CLK_FREQ 80*1000000
-#endif
-
-#define SPI_CLK_PREDIV 10
-#define SPI_CLK_CNTDIV 2
-#define SPI_CLK_FREQ CPU_CLK_FREQ/(SPI_CLK_PREDIV*SPI_CLK_CNTDIV) // 80 / 20 = 4 MHz
 
 
 
@@ -203,6 +195,7 @@ void spi_txd(uint8 spi_no, uint8 no_bits, uint32 data ){
 
 ////////////////////////////////////////////////////////////////////////////////
 
+/* Moved to spi.h as expansion macros
 ////////////////////////////////////////////////////////////////////////////////
 //
 // Function Name: spi_tx8
@@ -211,6 +204,7 @@ void spi_txd(uint8 spi_no, uint8 no_bits, uint32 data ){
 //				  data - actual data to transmit
 //				 
 ////////////////////////////////////////////////////////////////////////////////
+
 
 void spi_tx8(uint8 spi_no, uint8 data){
 
@@ -253,6 +247,7 @@ void spi_tx32(uint8 spi_no, uint32 data){
 }
 
 ////////////////////////////////////////////////////////////////////////////////
+*/
 
 //TODO spi_rxd function
 
