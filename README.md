@@ -51,13 +51,13 @@ Basic Transmit Functions
 Send 'n' bits of data:
 spi_txd(spi_no, bits, data)
 
-Send 8 bits of data (1 BYTE): 
+Send 8 bits of data (1 BYTE):
 spi_tx8(spi_no, data)
 
-Send 16 bits of data (1 WORD): 
+Send 16 bits of data (1 WORD):
 spi_tx16(spi_no, data)
 
-Send 32 bits of data (1 DWORD): 
+Send 32 bits of data (1 DWORD):
 spi_tx32(spi_no, data) 
 
 Example:
