@@ -209,7 +209,7 @@ uint32 spi_transaction(uint8 spi_no, uint8 cmd_bits, uint16 cmd_data, uint32 add
 
 	//code for custom Chip Select as GPIO PIN here
 
-	while(READ_PERI_REG(SPI_CMD(spi_no))&SPI_USR); //wait for SPI to be ready	
+	while(spi_busy(spi_no)); //wait for SPI to be ready	
 
 //########## Enable SPI Functions ##########//
 	//disable MOSI, MISO, ADDR, COMMAND, DUMMY in case previously set.
@@ -279,7 +279,7 @@ uint32 spi_transaction(uint8 spi_no, uint8 cmd_bits, uint16 cmd_data, uint32 add
 
 //########## Return DIN data ##########//
 	if(din_bits) {
-		while(READ_PERI_REG(SPI_CMD(spi_no))&SPI_USR);	//wait for SPI transaction to complete
+		while(spi_busy(spi_no));	//wait for SPI transaction to complete
 		
 		if(READ_PERI_REG(SPI_USER(spi_no))&SPI_RD_BYTE_ORDER) {
 			return READ_PERI_REG(SPI_W0(spi_no)) >> (32-din_bits); //Assuming data in is written to MSB. TBC
