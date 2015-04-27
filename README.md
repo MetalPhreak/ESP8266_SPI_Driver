@@ -1,6 +1,16 @@
 ESP8266 SPI Driver
 ========
 
+HSPI Hardware Pins
+========
+
+|Pin Name| GPIO # | HSPI Function |
+|--------|--------|---------------|
+|MTDI	 | GPIO12 | MISO (DIN)    |
+|MTCK	 | GPIO13 | MOSI (DOUT)   |
+|MTMS	 | GPIO14 | CLOCK         |
+|MTDO	 | GPIO15 | CS / SS       |
+
 Main SPI Transaction Function
 ========
 Perform an SPI transaction. 
