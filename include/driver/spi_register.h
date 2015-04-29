@@ -48,12 +48,13 @@
 #define SPI_FASTRD_MODE (BIT(13))
 
 #define SPI_CTRL1(i)                          (REG_SPI_BASE (i) + 0xC) //From previous SDK. Removed _FLASH_ from name to match other registers.
-#define SPI_T_CSH 0x0000000F //From previous SDK
-#define SPI_T_CSH_S 28 //From previous SDK
-#define SPI_T_RES 0x00000FFF //From previous SDK
-#define SPI_T_RES_S 16 //From previous SDK
+#define SPI_CS_HOLD_DELAY 0x0000000F //Espressif BBS
+#define SPI_CS_HOLD_DELAY_S 28 //Espressif BBS
+#define SPI_CS_HOLD_DELAY_RES 0x00000FFF //Espressif BBS
+#define SPI_CS_HOLD_DELAY_RES_S 16 //Espressif BBS
 #define SPI_BUS_TIMER_LIMIT 0x0000FFFF //From previous SDK
 #define SPI_BUS_TIMER_LIMIT_S 0 //From previous SDK
+
 
 #define SPI_RD_STATUS(i)                         (REG_SPI_BASE(i)  + 0x10)
 #define SPI_STATUS_EXT 0x000000FF //From previous SDK
@@ -75,7 +76,9 @@
 #define SPI_CS_DELAY_MODE_S 26
 #define SPI_MOSI_DELAY_NUM 0x00000007
 #define SPI_MOSI_DELAY_NUM_S 23
-#define SPI_MOSI_DELAY_MODE 0x00000003
+#define SPI_MOSI_DELAY_MODE 0x00000003  //mode 0 : posedge; data set at positive edge of clk
+										//mode 1 : negedge + 1 cycle delay, only if freq<10MHz ; data set at negitive edge of clk
+										//mode 2 : Do not use this mode.
 #define SPI_MOSI_DELAY_MODE_S 21
 #define SPI_MISO_DELAY_NUM 0x00000007
 #define SPI_MISO_DELAY_NUM_S 18
