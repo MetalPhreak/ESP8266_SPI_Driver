@@ -112,16 +112,16 @@ Basic Receive Functions
 ========
 
 Receive 'n' bits of data:
-spi_rxd(spi_no, bits, data)
+spi_rxd(spi_no, bits)
 
 Receive 8 bits of data (1 BYTE): 
-spi_rx8(spi_no, data)
+spi_rx8(spi_no)
 
 Receive 16 bits of data (1 WORD): 
-spi_rx16(spi_no, data)
+spi_rx16(spi_no)
 
 Receive 32 bits of data (1 DWORD): 
-spi_rx32(spi_no, data) 
+spi_rx32(spi_no) 
 
 Example:
 
