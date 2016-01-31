@@ -63,7 +63,7 @@ void spi_init(uint8 spi_no){
 ////////////////////////////////////////////////////////////////////////////////
 
 void spi_mode(uint8 spi_no, uint8 spi_cpha,uint8 spi_cpol){
-	if(spi_cpha) {
+	if(!spi_cpha == !spi_cpol) {
 		CLEAR_PERI_REG_MASK(SPI_USER(spi_no), SPI_CK_OUT_EDGE);
 	} else {
 		SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_CK_OUT_EDGE);
