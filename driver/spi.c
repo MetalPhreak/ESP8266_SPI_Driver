@@ -319,7 +319,9 @@ uint32 spi_transaction(uint8 spi_no, uint8 cmd_bits, uint16 cmd_data, uint32 add
 		return 0; //something went wrong
 	}
 //########## END SECTION ##########//
-
+	
+	while(spi_busy(spi_no)); //prevents GPIO pin state change while SPI operation is in process
+	
 	//Transaction completed
 	return 1; //success
 }
