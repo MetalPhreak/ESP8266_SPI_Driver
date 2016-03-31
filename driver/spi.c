@@ -55,8 +55,8 @@ void spi_init(uint8 spi_no){
 // Function Name: spi_mode
 //   Description: Configures SPI mode parameters for clock edge and clock polarity.
 //    Parameters: spi_no - SPI (0) or HSPI (1)
-//				  spi_cpha - (0) Data is valid on clock leading edge
-//				             (1) Data is valid on clock trailing edge
+//				  spi_cpha - (0) Data is valid on clock leading (rising) edge
+//				             (1) Data is valid on clock trailing (falling) edge
 //				  spi_cpol - (0) Clock is low when inactive
 //				             (1) Clock is high when inactive
 //
@@ -64,9 +64,9 @@ void spi_init(uint8 spi_no){
 
 void spi_mode(uint8 spi_no, uint8 spi_cpha,uint8 spi_cpol){
 	if(spi_cpha) {
-		CLEAR_PERI_REG_MASK(SPI_USER(spi_no), SPI_CK_OUT_EDGE);
-	} else {
 		SET_PERI_REG_MASK(SPI_USER(spi_no), SPI_CK_OUT_EDGE);
+	} else {
+		CLEAR_PERI_REG_MASK(SPI_USER(spi_no), SPI_CK_OUT_EDGE);
 	}
 
 	if (spi_cpol) {
